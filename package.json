@@ -6,7 +6,7 @@
   "scripts": {
     "start": "mkdir dist && node samurai.js --serve",
     "serve": "mkdir dist && node samurai.js --serve",
-    "build": "mkdir dist && node samurai.js --build"
+    "build": "node samurai.js --build"
   },
   "type": "module",
   "keywords": [],

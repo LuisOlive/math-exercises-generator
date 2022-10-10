@@ -1,0 +1,62 @@
+{% from '../macros/navigation.njk' import link %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.2/katex.min.css'/>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css'/>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+  <div class="container">
+    {# logo #}
+    <a class="navbar-brand" href="/">Inicio</a>
+    
+    {# mobile button collapser #}
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    {# options #}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      {# class ms-auto aligns correctly the menu #}
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Monomios
+          </a>
+        
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>{{ link('ejercicios monomios nivel 1', 'nivel 1', 'dropdown-item') }}</li>
+            <li>{{ link('ejercicios monomios nivel 2', 'nivel 2', 'dropdown-item') }}</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1 class="h1">
+    {% block h1 %}{% endblock %}
+  </h1>
+  
+  <h2 class="h2">
+    {% block h2 %}{% endblock %}
+  </h2>
+  
+  <main>
+    {% block main %}{% endblock %}
+  </main>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.2/katex.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js' integrity='sha512-6UofPqm0QupIL0kzS/UIzekR73/luZdC6i/kXDbWnLOJoqwklBK6519iUnShaYceJ0y4FaiPtX/hRnV/X/xlUQ==' crossorigin='anonymous'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js'></script>
+</body>
+</html>

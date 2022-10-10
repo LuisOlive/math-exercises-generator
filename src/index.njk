@@ -1,15 +1,11 @@
-{% extends './layouts/_main.njk' %}
-{% from './macros/_algebra.njk' import num, var, op %}
+{% extends './layouts/main.njk' %}
+{% from './macros/navigation.njk' import link %}
 
-{% block exercise %}
-  {% set x = var() %}
+{% block main %}
   
-  {{ num(50) }} {{ x }}
-  {{ op() }}
-  
-  {{ num() }} {{ x }}
-  {{ op('+-') }}
-  
-  {{ num() }} {{ var() }}
+  <ul>
+    <li>{{ link('ejercicios monomios nivel 1') }}</li>
+    <li>{{ link('ejercicios monomios nivel 2') }}</li>
+  </ul>
   
 {% endblock %}

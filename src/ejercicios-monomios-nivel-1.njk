@@ -1,0 +1,16 @@
+{% extends './layouts/exercises.njk' %}
+{% from './macros/algebra.njk' import num, var, op, implicit %}
+
+{% block exercise -%}
+  {% set a = num(25) %}
+  {% set x = var() %}
+  {% set b = num() %}
+  {% set y = var(x) %}
+  
+  {{ implicit(a, x) }}
+   
+  {{ op() }}
+  
+  {{ implicit(b, y) }}
+  
+{%- endblock %}

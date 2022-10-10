@@ -1,0 +1,22 @@
+{% macro pick(str) -%}
+  {{ str.split('') | random | trim }}
+{%- endmacro %}
+
+{% macro num(max = 10) -%}
+  {{ range(1, max) | random }}
+{%- endmacro %}
+
+{% macro op(ops = '+-/*') -%}
+  {{ pick(ops) }}
+{%- endmacro %}
+
+{% macro var(preferred = 'abcdefghijkLmnopqrstuvwxyz') -%}
+  {% set p = preferred | trim %}
+  
+  {{ pick('abcdefghijkLmnopqrstuvwxyz  ' + p+p+p+p+p) }}
+{%- endmacro %}
+
+{% macro implicit(a, x, pow = 1) %}
+  {{ a if a != 1 or (x | trim) == '' }}
+  {{ x }}
+{% endmacro %}
