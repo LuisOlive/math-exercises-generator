@@ -1,0 +1,29 @@
+{% macro pick(str) %}
+  {{ str.split('') | random }}
+{% endmacro %}
+
+{% macro num(max = 10) %}
+  {{ range(2, max) | random }}
+{% endmacro %}
+
+{% macro op(ops = '+-/*') %}
+  {{ pick(ops) }}
+{% endmacro %}
+
+{% macro var(p) %}
+  {{ pick('abcdefghijklmnopqrstuvwxyz' + p+p+p+p+p+p+p) }}
+{% endmacro %}
+
+{% macro monomial() %}
+  {{ num() }} {{ var() }} 
+{% endmacro %}
+
+{% macro exercise() %}
+  {% set x = monomial() %}
+  {{x}}
+
+  
+  =
+  
+{% endmacro %}
+

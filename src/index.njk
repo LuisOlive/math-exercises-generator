@@ -1,0 +1,15 @@
+{% extends './layouts/_main.njk' %}
+{% from './macros/_algebra.njk' import num, var, op %}
+
+{% block exercise %}
+  {% set x = var() %}
+  
+  {{ num(50) }} {{ x }}
+  {{ op() }}
+  
+  {{ num() }} {{ x }}
+  {{ op('+-') }}
+  
+  {{ num() }} {{ var() }}
+  
+{% endblock %}

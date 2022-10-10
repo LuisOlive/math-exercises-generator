@@ -1,0 +1,20 @@
+{
+  "name": "algebra-exercises-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "mkdir dist && node samurai.js --serve",
+    "serve": "mkdir dist && node samurai.js --serve",
+    "build": "mkdir dist && node samurai.js --build"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/nunjucks": "^3.2.1",
+    "nunjucks": "^3.2.3",
+    "samuraijs": "^0.0.12"
+  }
+}
