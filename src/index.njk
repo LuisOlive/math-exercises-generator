@@ -2,10 +2,12 @@
 {% from './macros/navigation.njk' import link %}
 
 {% block main %}
+  estas son solo pruebas
   
-  <ul>
-    <li>{{ link('ejercicios monomios nivel 1') }}</li>
-    <li>{{ link('ejercicios monomios nivel 2') }}</li>
-  </ul>
+  ({{ $routes }})
+  
+  {% for r in $routes %}
+    {{r}},
+  {% endfor %}
   
 {% endblock %}

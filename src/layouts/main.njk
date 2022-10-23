@@ -15,7 +15,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
   <div class="container">
     {# logo #}
-    <a class="navbar-brand" href="/">Inicio</a>
+    <a class="navbar-brand" href="/">Algebra</a>
     
     {# mobile button collapser #}
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,16 +26,30 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       {# class ms-auto aligns correctly the menu #}
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Monomios
-          </a>
         
+        
+        {% for route in $routes %}
+        <li class="nav-item dropdown">
+          
+          {# dropdown title #}
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ route.path }}
+          </a>
+      
+          {# dropdown options #}
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>{{ link('ejercicios monomios nivel 1', 'nivel 1', 'dropdown-item') }}</li>
-            <li>{{ link('ejercicios monomios nivel 2', 'nivel 2', 'dropdown-item') }}</li>
+            {% for child in route.children %}
+            <li>
+              <a class="dropdown-item" href="/{{ route.path }}/{{ child | replace(' ', '-') }}.html">
+                {{ child }}
+              </a>
+            </li>  
+            {% endfor %}
           </ul>
+          
         </li>
+        {% endfor %}
+        
       </ul>
     </div>
   </div>
@@ -51,12 +65,14 @@
   </h2>
   
   <main>
-    {% block main %}{% endblock %}
+    {% block main %}{% endblock %} 
   </main>
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.2/katex.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js' integrity='sha512-6UofPqm0QupIL0kzS/UIzekR73/luZdC6i/kXDbWnLOJoqwklBK6519iUnShaYceJ0y4FaiPtX/hRnV/X/xlUQ==' crossorigin='anonymous'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js'></script>
+
+{% block bodybottom %}{% endblock %}
 </body>
 </html>

@@ -5,7 +5,7 @@
   "main": "dist/main.js",
   "scripts": {
     "start": "mkdir dist && node samurai.js --serve",
-    "serve": "mkdir dist && node samurai.js --serve",
+    "serve": "node samurai.js --serve",
     "build": "node samurai.js --build"
   },
   "type": "module",
@@ -16,5 +16,9 @@
     "@types/nunjucks": "^3.2.1",
     "nunjucks": "^3.2.3",
     "samuraijs": "^0.0.12"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "mathjs": "^11.3.0"
   }
 }

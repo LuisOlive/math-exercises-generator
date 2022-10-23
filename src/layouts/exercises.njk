@@ -1,21 +1,54 @@
 {% extends './main.njk' %}
 
-{% block main -%}
-<div class="row">
+{% set cols = 2 %}
+{% set col_size = 50 %}
 
-  {% for i in range(2) %}
+{% block main -%}
+
+<div class="row">
+  <p>{% block instructions %}Resolver lo siguiente, sin llorar{% endblock %}</p>
+</div>
+
+<div class="row answers-hidden" id="exercises">
+
+  {# two columns #}
+  {% for i in range(cols) %}
   <div class="col-lg katex">
   
-    {% for j in range(100) %}
+    {# 50 exercises per column #}
+    {% for j in range(col_size) %}
     <p>
-      <span>{{ i * 100 + j + 1 }})</span>
+      {# 1), 2), ... #}
+      <span>{{ i * col_size + j + 1 }})</span>
+      
       {% block exercise %}{% endblock %}
-      =
     </p>
     {% endfor %}
-      
+    {# end exercises per column #}
+  
   </div>
   {% endfor %}
+  {# end two columns #}
   
 </div>
+
+<div class="row">
+  <button type="button" class="btn btn-primary" onclick="showAnswers()">Mostrar respuestas</button>
+</div>
 {%- endblock %}
+
+{% block bodybottom %}
+<style>
+  .answers-hidden .answer {
+    display: none;
+  }
+</style>
+
+<script>
+  function showAnswers() {
+    document.getElementById('exercises').classList.toggle('answers-hidden')
+  }
+</script>
+{% endblock %}
+
+
