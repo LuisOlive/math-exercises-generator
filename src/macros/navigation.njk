@@ -1,5 +1,0 @@
-{% macro link(to, label, className) -%}
-  <a class="{{className or 'link-primary'}}" href="fracciones/{{ to| replace(' ', '-') }}.html">
-    {{ label or to }}
-  </a>
-{%- endmacro %}

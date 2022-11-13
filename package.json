@@ -6,6 +6,7 @@
   "scripts": {
     "start": "mkdir dist && node samurai.js --serve",
     "serve": "node samurai.js --serve",
+    "dev": "node samurai.js --serve",
     "build": "node samurai.js --build"
   },
   "type": "module",
@@ -18,6 +19,7 @@
     "samuraijs": "^0.0.12"
   },
   "dependencies": {
+    "katex": "^0.16.3",
     "lodash": "^4.17.21",
     "mathjs": "^11.3.0"
   }

@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { simplify, create, all } from 'mathjs'
+import { create, all } from 'mathjs'
 
 const math = create(all, { number: 'Fraction' })
 const vars = 'abcdefghijkLmnopqrstuvwxyz1'
@@ -7,6 +7,8 @@ const vars = 'abcdefghijkLmnopqrstuvwxyz1'
 /*
   random generators
 */
+
+export const random = _.random
 
 export function rand(max = 20) {
   return _.random(1, max + 1)
@@ -38,7 +40,7 @@ export function randExpression(coeff = rand(), symbol = randVar(), potence = 1) 
 
 export function solve(...expressions) {
   const problem = expressions.join(' ')
-  const ans = expression(problem)
+  const ans = math.format(math.simplify(problem), { fraction: 'ratio' })
 
   return { problem, ans }
 }

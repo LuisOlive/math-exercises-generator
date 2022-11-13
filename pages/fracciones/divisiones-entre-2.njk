@@ -1,0 +1,14 @@
+{% extends '../../layouts/exercises.njk' %}
+{% from '../../macros/hide_answer.njk' import hide_answer %}
+
+{% block instructions -%}
+  Divida los siguientes valores entre 2 usando el método rápido.
+{%- endblock %}
+
+{% block exercise -%}
+  {% set expr = divisionBy2() %}
+  
+  {{ katex(expr.problem) | safe }}= 
+  
+  <span class="answer">{{ expr.ans }} </span>
+{%- endblock %}

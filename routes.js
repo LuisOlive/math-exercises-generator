@@ -1,6 +1,6 @@
 export default [
   {
     path: 'fracciones',
-    children: ['divisiones entre 2', 'simplificacion', 'operaciones nivel 1']
+    children: ['divisiones entre 2', 'simplificación', 'operaciones (nivel 1)']
   }
 ]

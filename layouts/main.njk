@@ -1,5 +1,3 @@
-{% from '../macros/navigation.njk' import link %}
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +9,8 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css'/>
 </head>
 <body>
-
+  
+{# navbar #}
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
   <div class="container">
     {# logo #}
@@ -40,7 +39,8 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             {% for child in route.children %}
             <li>
-              <a class="dropdown-item" href="/{{ route.path }}/{{ child | replace(' ', '-') }}.html">
+              {# paths #}
+              <a class="dropdown-item" href="/{{ route.path }}/{{ alphanumeric(child) }}.html">
                 {{ child }}
               </a>
             </li>  
@@ -54,6 +54,7 @@
     </div>
   </div>
 </nav>
+{# navbar ends #}
 
 <div class="container">
   <h1 class="h1">
@@ -70,7 +71,7 @@
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.2/katex.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js' integrity='sha512-6UofPqm0QupIL0kzS/UIzekR73/luZdC6i/kXDbWnLOJoqwklBK6519iUnShaYceJ0y4FaiPtX/hRnV/X/xlUQ==' crossorigin='anonymous'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js'></script>
 
 {% block bodybottom %}{% endblock %}

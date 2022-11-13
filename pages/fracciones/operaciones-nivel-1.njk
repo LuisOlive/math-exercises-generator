@@ -1,0 +1,10 @@
+{% extends '../../layouts/exercises.njk' %}
+{% from '../../macros/hide_answer.njk' import hide_answer %}
+
+{% block instructions %}
+  Realice las siguientes operaciones con fracciones.
+{% endblock %}
+
+{% block exercise %}
+  {{ hide_answer(fractionOp(1)) | replace('(', '') | replace(')', '') }}
+{% endblock %}
