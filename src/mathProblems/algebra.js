@@ -11,14 +11,14 @@ const vars = 'abcdefghijkLmnopqrstuvwxyz1'
 export const random = _.random
 
 export function rand(max = 20) {
-  return _.random(1, max + 1)
+  return _.random(2, max)
 }
 
 export function randVar(p = '') {
   return _.sample(vars + p + p + p + p + p)
 }
 
-export function randOp(ops = '+-*/') {
+export function randOp(ops = '+-*÷/+-*') {
   return _.sample(ops)
 }
 
@@ -40,7 +40,15 @@ export function randExpression(coeff = rand(), symbol = randVar(), potence = 1) 
 
 export function solve(...expressions) {
   const problem = expressions.join(' ')
-  const ans = math.format(math.simplify(problem), { fraction: 'ratio' })
+  const strictMathProblem = problem.split('÷').join('/')
 
-  return { problem, ans }
+  try {
+    const ans = math.format(math.simplify(strictMathProblem), { fraction: 'ratio', notation: 'fixed' })
+
+    return { problem, ans }
+  } catch {
+    console.error('failed to solve: ', problem)
+    console.error('- strict: ', strictMathProblem)
+    return { problem, ans: '-99999999' }
+  }
 }

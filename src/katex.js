@@ -1,10 +1,17 @@
 import ktx from 'katex'
 import { create, all } from 'mathjs'
 
-const math = create(all, { number: 'Fraction' })
+const math = create(all, { number: 'Fraction', notation: 'fixed' })
 
 export default function katex(expr) {
-  return ktx.renderToString(math.parse('' + expr).toTex())
+  try {
+    return ktx.renderToString(math.parse(`${expr}`).toTex())
+    //
+  } catch (e) {
+    console.error(e.message)
+    console.error('failed to parse: ', expr)
+    return
+  }
 }
 
 // console.log(katex('2 + 2'))

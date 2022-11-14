@@ -1,5 +1,6 @@
 {% macro hide_answer(expr) -%}
   {{ katex(expr.problem) | safe }} = 
   
-  <span class="answer">{{ katex(expr.ans) | safe }} </span>
+  <span class="answer">{{ katex(expr.ans) | safe }}
+  </span>
 {%- endmacro %}

@@ -1,7 +1,9 @@
 import { Samurai } from 'samuraijs'
 import $routes from './routes.js'
 
-import * as fractions from './src/mathProblems/problems/fractions.js'
+import * as fr from './src/mathProblems/problems/fractions.js'
+import * as oo from './src/mathProblems/problems/operationsOrder.js'
+
 import alphanumeric from './src/alphanumeric.js'
 import katex from './src/katex.js'
 
@@ -9,8 +11,8 @@ new Samurai({
   paths: {
     source: 'pages',
     destination: 'dist',
-    assets: ['src/assets'],
-    exclude: ['src/templates', 'src/styles', 'src/scripts', 'src/layouts', 'src/macros', 'src/filters', 'src/methods']
+    assets: ['public'],
+    exclude: ['src/**', 'pages/**/__*']
   },
   nunjucks: {
     trimBlocks: true,
@@ -18,9 +20,12 @@ new Samurai({
       $routes,
       alphanumeric,
       katex,
-      divisionBy2: fractions.divisionBy2Problem,
-      simplifying: fractions.simplifyingProblem,
-      fractionOp: fractions.fractionOpProblem
+      divisionBy2: fr.divisionBy2Problem,
+      simplifying: fr.simplifyingProblem,
+      fractionOp: fr.fractionOpProblem,
+      opsOrderProblemLevel1: oo.level1,
+      opsOrderProblemLevel2: oo.level2,
+      opsOrderProblemLevel3: oo.level3
     }
   }
 })
